@@ -59,9 +59,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            public
+            build
             .cache
-          key: ${{ runner.os }}-build-${{ hashFiles('public') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('build') }}
           restore-keys: |
             ${{ runner.os }}-build-
       - name: Install dependencies
@@ -73,7 +73,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./public
+          path: ./build
 
   # Deployment job
   deploy:
